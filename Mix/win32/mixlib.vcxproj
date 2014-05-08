@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{BE1E2A5D-7460-4F06-AEEB-9443B1EE1844}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\mixlib_intermediate\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>../src/pcre-2.08;../Src/openssl/inc32;../src/zlib-1.1.4;../src/pdcurses;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_AES;_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_WIN32;IBMPC_SYSTEM;_MSC;MSC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\mixlib_intermediate/mixlib.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\mixlib_intermediate/</AssemblerListingLocation>
+      <ObjectFileName>.\mixlib_intermediate/</ObjectFileName>
+      <ProgramDataBaseFileName>.\mixlib_intermediate/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wsock32.lib;../Src/openssl/out32dll/libeay32.lib;release/pdcurses.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/mixlib.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>..\Src\mixlib.def</ModuleDefinitionFile>
+      <ImportLibrary>.\Release/mixlib.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/mixlib.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <PostBuildEvent>
+      <Message>Build static library</Message>
+      <Command>lib.exe /nologo /out:"$(OutDir)\mixlib_static.lib" "$(IntDir)\*.obj"</Command>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\buffers.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\chain.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\chain1.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\chain2.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\compress.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\crypto.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\dllmain.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\keymgt.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\mail.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\maildir.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\menu.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\menunym.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\menusend.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\menustats.c" />
+    <ClCompile Include="..\Src\menuutil.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\mime.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\mix.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\nym.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\parsedate.tab.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\pgp.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\pgpcreat.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\pgpdata.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\pgpdb.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\pgpget.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\pool.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\random.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\rem.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\rem1.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\rem2.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\rfc822.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\rndseed.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\stats.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Src\util.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_USRDLL;MIXLIB_EXPORTS;WIN32;NDEBUG;_WINDOWS;_MBCS;_WIN32;IBMPC_SYSTEM;_MSC;MSC</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Src\mixlib.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Pcre.vcxproj">
+      <Project>{fc9b2030-6750-4272-87c9-6e46ab029f69}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="pdcurses.vcxproj">
+      <Project>{f587947f-949d-4ad6-a527-3a34918741b5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="zlib.vcxproj">
+      <Project>{6a9ecab3-1ca6-4e2a-8a15-f8ae459bb174}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

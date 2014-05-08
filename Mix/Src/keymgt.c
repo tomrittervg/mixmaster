@@ -509,7 +509,9 @@ int deleteoldkeys(void)
     mixfile(path2, SECRING);
     if (rename(path1, path2)) return -14;
     }
+#ifndef WIN32
     sync();
+#endif
     if (!keyring) return -15;
     memset(line,'\n',LINELEN-1);
     line[LINELEN-1]='\0';

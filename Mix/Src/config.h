@@ -128,8 +128,9 @@
 #define USE_OPENSSL
 /* Use IDEA algorithm? (See file idea.txt) */
 /* #define USE_IDEA */
-/* Use AES algorithm? - should be handled by Install script setting compiler option -DUSE_AES */
-/* #define USE_AES */
+/* Use AES algorithm? - should be handled by Install script or VS Project File setting compiler option -DUSE_AES, 
+   but I'm going to uncomment it anyway because it makes my like easier on Windows.*/
+#define USE_AES
 /* Support the OpenPGP message format? */
 #define USE_PGP
 
@@ -243,7 +244,7 @@
 #define DEFAULT_ALLPINGERSFILE "allpingers.txt"
 #define DEFAULT_WGET "wget"
 
-DLLIMPORT extern char MIXCONF[];
+extern char MIXCONF[];
 extern char DISCLAIMFILE[];
 extern char FROMDSCLFILE[];
 extern char MSGFOOTERFILE[];
@@ -399,6 +400,6 @@ extern char STATSSRC[];
 extern int STATSAUTOUPDATE;
 extern long STATSINTERVAL;
 
-DLLIMPORT extern char ENTEREDPASSPHRASE[LINELEN];
+extern char ENTEREDPASSPHRASE[LINELEN];
 
 #endif
